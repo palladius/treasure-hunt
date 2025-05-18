@@ -43,7 +43,7 @@ Use latest version as of today 18may2025:
 * AppName: `treasure-hunt-game/`.
 ```
 
-## change 5 - v3
+## change 5 - v3.2
 
 error prompt:
 ```
@@ -145,3 +145,15 @@ ricc-macbookpro3:treasure-hunt ricc$ 
 =>
 
 bundle add matrix # For Prawn dependency on Ruby 3.1+
+
+
+## V4 - genius
+
+```
+quick question. These iterations are VERY slow. This is the 5th iteration and each takes like 5minutes. Is there a way to toggle an initial "FAST_SKIP_STUFF" toggle? I'm thinking this way:
+
+1. bash script comes equipped with FAST_SKIP_STUFF=TRUE on top. This will skip boring stuff like --no-ri, --no-rdoc, no testing, all testing suite will be disabled for now. I jjust care that the rails new and the gem install work and rake db:migrate on sqlite wotrks, and this happens in as little time as possible.
+2. when everything works, I'll just toggle the boolean to FALSE  without bothering you and refresh the folder generation.
+
+Can you add this field for me?
+```
