@@ -5,4 +5,5 @@ list:
 
 # destroy generated folder, and regenerate
 genesis-reiterate-DANGEROUS:
-    rm -rf treasure-hunt-game ; .genesis/sbrodola.sh
+    rm -rf treasure-hunt-game*
+    .genesis/sbrodola-v2.sh

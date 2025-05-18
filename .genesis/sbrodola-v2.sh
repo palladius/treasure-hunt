@@ -145,8 +145,16 @@ bundle exec rails g model PlayerProgress game:references nickname:string languag
 log "Updating migrations for indexes and default values..."
 # Find the create_games migration file
 GAME_MIGRATION_FILE=$(ls db/migrate/*_create_games.rb | head -n 1)
-sed -i.bak "/t.string :public_code/a \ \ \ \ add_index :games, :public_code, unique: true" "$GAME_MIGRATION_FILE"
-sed -i.bak 's/t.boolean :published/t.boolean :published, default: true/' "$GAME_MIGRATION_FILE" && rm "${GAME_MIGRATION_FILE}.bak"
+
+#sed -i.bak "/t.string :public_code/a \ \ \ \ add_index :games, :public_code, unique: true" "$GAME_MIGRATION_FILE"
+# BROKEN
+#sed -i.bak 's/t.boolean :published/t.boolean :published, default: true/' "$GAME_MIGRATION_FILE" && rm "${GAME_MIGRATION_FILE}.bak"
+# BETTER
+#sed -i.bak -e "/t.string :public_code/a\\" -e "    add_index :games, :public_code, unique: true" "$GAME_MIGRATION_FILE"
+NEW_LINE_TEXT_GAME="    add_index :games, :public_code, unique: true"
+sed -i.bak "/t.string :public_code/a\\
+${NEW_LINE_TEXT_GAME}
+" "$GAME_MIGRATION_FILE"
 
 # Find the create_clues migration file
 CLUE_MIGRATION_FILE=$(ls db/migrate/*_create_clues.rb | head -n 1)
